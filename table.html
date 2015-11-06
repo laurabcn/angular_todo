@@ -1,0 +1,30 @@
+<table class="table">
+    <tr>
+        <th>#</th>
+        <th>Action</th>
+        <th>Done</th>
+    </tr>
+    <tr ng-repeat="item in dc.todos" ng-class=" $odd ? 'odd' : 'even' ">
+        <td ng-repeat="prop in item">{{prop}}</td>
+    </tr>
+    <tr ng-repeat="item in dc.todos">
+        <td>{{ $index + 1 }}</td>
+        <td ng-repeat="(key, value) in item" class="ng-scope ng-binding">
+            {{key}} = {{value}}
+        </td>
+    </tr>
+    <tr ng-repeat="item in dc.todos" ng-class=" $odd ? 'odd' : 'even' ">
+        <td>{{$index + 1}}</td>
+        <td>{{item.action}}</td>
+        <td><span ng-if="$first || $last">{{item.complete}}</span></td>
+    </tr>
+    <tr ng-repeat-start="item in dc.todos">
+        <td>This is item {{$index}}</td>
+    </tr>
+    <tr>
+        <td>The action is: {{item.action}}</td>
+    </tr>
+    <tr ng-repeat-end>
+        <td>Item {{$item}} is {{$item.complete? '': 'not'}} complete</td>
+    </tr>
+</table>
